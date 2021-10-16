@@ -1,0 +1,10 @@
+$header-height: 66px;
+
+:host {
+  height: 100vh;
+  display: block;
+
+  main {
+    height: calc(100% - #{$header-height});
+  }
+}

@@ -1,0 +1,7 @@
+@import "vendor";
+@import "abstracts/variables";
+
+body {
+  background-color: $shade-1;
+  height: 100vh;
+}

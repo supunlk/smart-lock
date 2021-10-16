@@ -1,0 +1,89 @@
+@import "abstracts/variables";
+
+:host {
+  display: block;
+  padding: 20px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    g#Floor_1 {
+      g[id^="Room"] {
+        cursor: pointer;
+
+        g[id^="Notifications"] {
+          g[id^="Warning"] {
+            animation: blinker 1s ease infinite;
+          }
+          g[id^="Check"] {
+
+          }
+          g[id^="Ready"] {
+
+          }
+
+          g[id^="Warning"], g[id^="Check"], g[id^="Ready"] {
+            display: none;
+          }
+        }
+
+        &:hover {
+          rect[id^="highlight"] {
+            fill: $yellow;
+          }
+        }
+      }
+
+      g[id^="Room"] {
+        &.has-warning {
+          g[id^="Notifications"] {
+            g[id^="Warning"] {
+              display: block;
+            }
+          }
+        }
+        &.checkin {
+          g[id^="Notifications"] {
+            g[id^="Check"] {
+              display: block;
+            }
+          }
+        }
+        &.ready {
+          g[id^="Notifications"] {
+            g[id^="Ready"] {
+              display: block;
+            }
+          }
+        }
+        &.door-closed {
+          g[id^="Main_Door"] {
+            path[id^="Path_4"] {
+              stroke: $green;
+            }
+            g[id^="Rectangle_1"], path[id^="Path_3"] {
+              display: none;
+            }
+          }
+
+        }
+
+        &.door-opened {
+          g[id^="Main_Door"] {
+            path[id^="Path_4"],g[id^="Rectangle_1"] {
+              stroke: $red;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
