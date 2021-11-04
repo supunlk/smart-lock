@@ -9,12 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class ManagementComponent implements OnInit {
 
-  constructor(private _websocketService: WebsocketService) {
+  constructor() {
 
   }
 
   ngOnInit(): void {
-    (this._websocketService?.connection$ as Observable<any>).subscribe(v => console.log(v));
   }
 
 }

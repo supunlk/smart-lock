@@ -3,6 +3,6 @@
     <label class="me-3">Floor</label>
     <p-dropdown [options]="floors" [(ngModel)]="selectedFloor"></p-dropdown>
   </div>
-  <app-floor-plan [selectedFloor]="selectedFloor"></app-floor-plan>
+  <app-floor-plan [selectedFloor]="selectedFloor" [alertData]="floorAlerts$ | async"></app-floor-plan>
 </section>
 
