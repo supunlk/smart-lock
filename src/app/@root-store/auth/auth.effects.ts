@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthService } from '@core/services/auth.service';
-import { login, loginFailure, loginSuccess } from '@root-store/auth/auth.actions';
+import { login, loginFailure, loginSuccess, logout } from '@root-store/auth/auth.actions';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -33,6 +33,14 @@ export class AuthEffects {
     tap(() => this._router.navigate(['/']))
   ), {dispatch: false});
 
+  /************************************************************************
+   * Logout
+   */
+  logout$ = createEffect(() => this._actions$.pipe(
+    ofType(logout),
+    tap(() => this._router.navigate(['auth', 'login'])),
+    tap(() => localStorage.removeItem(SL_TOKEN)),
+  ), {dispatch: false});
 
   constructor(private _actions$: Actions,
               private _authService: AuthService,

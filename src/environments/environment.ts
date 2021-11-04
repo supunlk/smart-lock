@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://ec2-65-1-91-177.ap-south-1.compute.amazonaws.com/api/'
+  apiBaseUrl: 'https://ec2-65-1-91-177.ap-south-1.compute.amazonaws.com/api/',
+  wsEndpoint: 'ws://ec2-65-1-91-177.ap-south-1.compute.amazonaws.com/api/ws/plugins/telemetry'
 };
 
 /*

@@ -20,3 +20,9 @@ export const loginFailure = createAction(
 );
 
 
+/************************************************************************
+ * logout
+ */
+export const logout = createAction(
+  '[Auth] logout',
+);

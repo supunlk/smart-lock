@@ -30,3 +30,12 @@ export const isAuthorized = createSelector(
   selectAuthState,
   (authState) => !!localStorage.getItem(SL_TOKEN)
 );
+
+/************************************************************************
+ * select Auth Token
+ * > string
+ */
+export const selectAuthToken = createSelector(
+  selectAuthState,
+  (authState) => localStorage.getItem(SL_TOKEN)
+);

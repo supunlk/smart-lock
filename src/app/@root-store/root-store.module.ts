@@ -5,6 +5,7 @@ import { environment } from '@env/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { metaReducers, reducers } from './index';
 import { AuthEffects } from '@root-store/auth/auth.effects';
+import { UserEffects } from './user/user.effects';
 
 
 
@@ -20,8 +21,9 @@ import { AuthEffects } from '@root-store/auth/auth.effects';
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([
-      AuthEffects
-    ])
+      AuthEffects,
+      UserEffects
+    ]),
   ]
 })
 export class RootStoreModule { }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from '@core/layout/main/main.component';
 import { AuthGuard } from '@core/guards/auth.guard';
+import { UserResolver } from '@core/data-resolvers/user.resolver';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
     canActivate: [
       AuthGuard
     ],
+    resolve: {
+      user: UserResolver
+    },
     children: [
       {
         path: 'dashboard',
