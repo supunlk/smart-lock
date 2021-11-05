@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ManagementComponent } from "./management.component";
+import { ManagementComponent } from './management.component';
 
 const routes: Routes = [
   {
@@ -14,11 +14,11 @@ const routes: Routes = [
     children: [
       {
         path: 'floor',
-        loadChildren: () => import('./floor/floor.module').then(m => m.FloorModule)
+        loadChildren: () => import('../@shared/floor/floor.module').then(m => m.FloorModule)
       },
       {
         path: 'room',
-        loadChildren: () => import('./room/room.module').then(m => m.RoomModule)
+        loadChildren: () => import('../@shared/room/room.module').then(m => m.RoomModule)
       }
     ]
   }

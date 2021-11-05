@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { WebsocketService } from '@core/services/websocket.service';
 import { DoorData, WsMessage } from '@models/ws-message.model';
 import { map } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { selectTelemetryData } from '@root-store/telemetry/telemetry.selectors';
 
 @Component({
   selector: 'app-floor',
@@ -14,29 +16,16 @@ export class FloorComponent implements OnInit {
 
   floors: string[];
   selectedFloor = '1';
-  floorAlerts$?: Observable<DoorData>;
+  floorAlerts$?: Observable<DoorData | null>;
 
-  constructor(private _websocketService: WebsocketService) {
+  constructor(private _store: Store) {
     this.floors = [
       '1', '2', ' 3', '4', '5', '6', '7', '8'
     ];
   }
 
   ngOnInit(): void {
-    this.floorAlerts$ = (this._websocketService?.connection$ as Observable<any>).pipe(
-      map((wsMessage: WsMessage) => wsMessage.data),
-      map(data => {
-
-        const obj: any = {};
-
-        Object.keys(data).forEach(k => {
-          obj[k] = data[k][0][1] === 'true';
-        });
-
-        console.log(obj);
-        return obj as DoorData;
-      })
-    );
+    this.floorAlerts$ = this._store.select(selectTelemetryData);
   }
 
 }

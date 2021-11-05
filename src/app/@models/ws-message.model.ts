@@ -1,4 +1,5 @@
 export interface DoorData {
+  time: string;
   isLocked: boolean;
   intruderAlert: boolean;
   secured: boolean;

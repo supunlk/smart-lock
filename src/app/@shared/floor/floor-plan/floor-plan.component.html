@@ -5,8 +5,7 @@
                                 'has-warning': alertData?.intruderAlert,
                                 'door-closed': alertData?.isLocked,
                                 'secured': (alertData?.isLocked && !alertData?.intruderAlert),
-                                'door-opened': !alertData?.isLocked,
-                                'ready': (!alertData?.isLocked && !alertData?.intruderAlert)
+                                'door-opened': !alertData?.isLocked
       }" [routerLink]="['../', 'room', selectedFloor + '08']" [queryParams]="{type: 'top'}">
       <rect id="highlight" width="162" height="174" transform="translate(324 253)" fill="#fff"/>
       <g id="Main_Door" data-name="Main Door">

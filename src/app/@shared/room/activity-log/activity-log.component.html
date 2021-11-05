@@ -1,0 +1,7 @@
+<ng-container *ngIf="(telemetryHistory$ | async) as telemetryHistory">
+
+  <ng-container *ngFor="let history of telemetryHistory">
+    <app-alerts [doorData]="history" [showTime]="true"></app-alerts>
+  </ng-container>
+
+</ng-container>

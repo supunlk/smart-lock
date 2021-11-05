@@ -1,0 +1,9 @@
+:host {
+  .filters {
+    height: 62px;
+    padding: 20px 20px 0;
+  }
+  app-floor-plan {
+    height: calc(100% - 62px);
+  }
+}

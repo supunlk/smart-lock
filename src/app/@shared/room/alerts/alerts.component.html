@@ -1,0 +1,29 @@
+<ng-container *ngIf="doorData.isLocked && !doorData.intruderAlert">
+  <div class="alert alert-success d-flex align-items-center" role="alert">
+    <i class="pi pi-shield me-3"></i>
+    <div *ngIf="showTime" class="me-3">{{doorData.time}} : </div>
+    <div>
+      <strong>Door is secured!</strong>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="!doorData.isLocked && !doorData.intruderAlert">
+  <div class="alert alert-warning d-flex align-items-center" role="alert">
+    <i class="pi pi-info-circle me-3"></i>
+    <div *ngIf="showTime" class="me-3"><strong>{{doorData.time}}</strong> : </div>
+    <div>
+      <strong>Door is Open!</strong>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="doorData.intruderAlert">
+  <div class="alert alert-danger d-flex align-items-center" role="alert">
+    <i class="pi pi-exclamation-triangle me-3"></i>
+    <div *ngIf="showTime" class="me-3"><strong>{{doorData.time}}</strong> : </div>
+    <div>
+      <strong>Unauthorized access detected!</strong>
+    </div>
+  </div>
+</ng-container>
+
+
