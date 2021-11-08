@@ -3,9 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from "@core/core.module";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CoreModule } from '@core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RootStoreModule } from '@root-store/root-store.module';
+import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ import { RootStoreModule } from '@root-store/root-store.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    RootStoreModule
+    RootStoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

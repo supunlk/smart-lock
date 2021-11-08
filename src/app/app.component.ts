@@ -5,6 +5,7 @@ import { DoorData, WsMessage } from '@models/ws-message.model';
 import { setTelemetryData } from '@root-store/telemetry/telemetry.actions';
 import { WebsocketService } from '@core/services/websocket.service';
 import { Store } from '@ngrx/store';
+import { MqttService } from 'ngx-mqtt';
 
 @Component({
   selector: 'app-root',
